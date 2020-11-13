@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comment Form</title>
+</head>
+<body>
+  <form action = "insert.php" method = "post" id="CommentForm" >
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" name = "name" id="idName" placeholder="Enter Name">
+    </div>
+    <div class="form-group">
+      <label for="comment">Comment:</label>
+      <textarea rows="5" cols="16s" name = "comment" id="idComment" placeholder="Enter Comment"></textarea> 
+    </div>
+    <div class="form-group">
+      <label for="name">Link:</label>
+      <input type="text" class="form-control" name = "link" id="idLink" placeholder="Enter Link"> 
+    </div>
+  
+    <button type="submit" class="btn btn-primary" id="commentBtn">Submit</button>
+  </form> 
+</body>
+</html>

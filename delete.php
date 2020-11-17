@@ -7,18 +7,12 @@ if (mysqli_connect_errno($conn))
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 
-if(isset($_GET['id'])){
-    $id = $conn->real_escape_string(%$_GET['id']);
+$sql = "DELETE FROM guestbook WHERE 'id'='".$data."'");
 
-    $sql = "DELETE FROM guestbook WHERE 'id'='".$id."'");
-    if (mysqli_query($conn, $sql)) {
-        echo "Delete successfull";
-      } else {
-        echo "Something went wrong: " . $sql . "<br>" . mysqli_error($conn);
-      }
-}
-
-
-
+if (mysqli_query($conn, $sql)) {
+    echo "Delete successfull";
+  } else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
 
 ?>

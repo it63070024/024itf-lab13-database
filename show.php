@@ -8,7 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body class="bg-dark">
+<body class="bg-dark" style="margin:20px;">
 <?php
 $conn = mysqli_init();
 mysqli_real_connect($conn, 'it63070024-itf-lab13-database-php.mysql.database.azure.com', 'it630070024@it63070024-itf-lab13-database-php', 'TMRpti62', 'itflab', 3306);
@@ -20,11 +20,12 @@ $res = mysqli_query($conn, 'SELECT * FROM guestbook');
 ?>
 <div class="table-responsive">
 <table class="table table-dark table-striped">
-  <tr>
-    <th> <div align="center">Name</div></th>
-    <th> <div align="center">Comment </div></th>
-    <th> <div align="center">Link </div></th>
-  </tr>
+  <thead>
+    <th> <center>Name</center></th>
+    <th> <center>Comment </center></th>
+    <th> <center>Link </center></th>
+    <th> <center>Action</center></th>
+  </thead>
 <?php
 while($Result = mysqli_fetch_array($res))
 {
@@ -33,6 +34,9 @@ while($Result = mysqli_fetch_array($res))
     <td><div align="center"><?php echo $Result['Name'];?></div></td>
     <td><div align="center"><?php echo $Result['Comment'];?></div></td>
     <td><div align="center"><?php echo $Result['Link'];?></div></td>
+    <td><div align="center"><a href="edit.php?U_ID=<?php echo $data['ID'] ?>" class="btn btn-warning">Edit</a>
+    <a href="delete.php?D_ID=<?php echo $data['ID'] ?>" class="btn btn-danger">Del</a></td>
+    
   </tr>
 <?php
 }

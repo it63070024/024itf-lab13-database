@@ -18,6 +18,11 @@ if (mysqli_connect_errno($conn))
 }
 $res = mysqli_query($conn, 'SELECT * FROM guestbook');
 ?>
+<div class="btn btn-primary"><a href="form.html?U_ID=<?php echo $data['ID'] ?>" class="btn btn-primary">Comment</a>
+<form action="" method="POST">
+
+</form>
+</div>
 <div class="table-responsive">
 <table class="table table-dark table-striped">
   <thead>

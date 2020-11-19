@@ -7,22 +7,20 @@ if (mysqli_connect_errno($conn))
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 
-$id = $_POST['ID'];
-$name = $_POST['name'];
-$comment = $_POST['comment'];
-$link = $_POST['link'];
+$stmt = $conn->prepare("DELETE FROM tbl_member WHERE id=?");
+$stmt->bind_param("i", $id);
+$id = $_GET['id'];
+$stmt->execute();
 
-
-$sql = "DELETE FROM guestbook
-        WHERE id = 'ID'
-";
-
-
-if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  }
-  
+if($stmt->error){
+	echo $stmt->error;
+}else{
+	echo "del successfully <a href='index.php'> home </a> ";
+}
+ 
+ 
+$stmt->close();
 mysqli_close($conn);
+ 
 ?>
+  

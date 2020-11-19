@@ -1,5 +1,3 @@
-<html>
-
 <?php
 
 $conn = mysqli_init();
@@ -19,14 +17,10 @@ $sql = "INSERT INTO guestbook (Name , Comment , Link) VALUES ('$name', '$comment
 
 
 if (mysqli_query($conn, $sql)) {
-    echo " ";
+    echo "New Comment Posting <a href='index.php'> Main Page </a>";
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
   
 mysqli_close($conn);
 ?>
-<body>
-<td><div align="center"><a href="index.php" class="btn btn-primary">Main Page</a>
-<body>
-</html>

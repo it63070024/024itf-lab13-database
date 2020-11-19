@@ -8,13 +8,7 @@ if (mysqli_connect_errno($conn))
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 if(isset($_POST['id'])){
 $id = $_POST['id'];	
-		$stmt = $conn->prepare("
-			UPDATE  guestbook  SET 
-		name=?,
-		comment=?,
-		link=?
-		WHERE id=$id
-		");
+		$sql =	"UPDATE  guestbook (Name , Comment , Link) VALUES ('$name', '$comment', '$link') WHERE id=$id");
 		$stmt->bind_param("sss", $name, $comment, $link);
  
 		$name = $_POST['name'];

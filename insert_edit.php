@@ -5,29 +5,28 @@ if (mysqli_connect_errno($conn))
 {
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 if(isset($_POST['id'])){
 $id = $_POST['id'];	
-		// prepare and bind
 		$stmt = $conn->prepare("
-			UPDATE  tbl_member  SET 
+			UPDATE  guestbook  SET 
 		name=?,
-		email=?,
-		phone=?
+		comment=?,
+		link=?
 		WHERE id=$id
 		");
-		$stmt->bind_param("sss", $name, $email, $phone);
+		$stmt->bind_param("sss", $name, $comment, $link);
  
 		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$phone = $_POST['phone'];
+		$comment = $_POST['comment'];
+		$link = $_POST['link'];
 		$stmt->execute();
-		if($stmt->error){
-			echo $stmt->error;
-		}else{
-			echo "Update Successfull <a href='index.php'> Home </a> ";
-		}
-		$stmt->close();
+		if (mysqli_query($conn, $sql)) {
+			echo "Comment Updated <button class="btn-primary"><a href='index.php'> Main Page </a></button>";
+		  } else {
+			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		  }
+		close($stmt);
 		mysqli_close($conn);
  }
  

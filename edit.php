@@ -14,12 +14,12 @@ $num = $result->num_rows;
 //echo $num;
 //print_r($row);
 ?>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <div class="container">
 	<div class="row">
 		<div  class="col-sm-5">
 			<br>
-			<h3>Form Update Data</h3>
+			<h3>Edit Comment</h3>
 			<form action="insert_edit.php" method="post">
 				<div class="form-group">
 				Name : <input type="text" name="name" required value="<?php echo $row['name'];?>" class="form-control" placeholder="name"> 

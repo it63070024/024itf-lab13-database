@@ -12,11 +12,11 @@ $stmt->bind_param("i", $id);
 $id = $_GET['id'];
 $stmt->execute();
 
-if($stmt->error){
-	echo $stmt->error;
-}else{
-	echo "del successfully <a href='index.php'> home </a> ";
-}
+if (mysqli_query($conn, $sql)) {
+	echo "Delete Comment <button class="btn-primary"><a href='index.php'> Main Page </a></button>";
+  } else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
  
  
 $stmt->close();

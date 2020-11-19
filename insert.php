@@ -17,14 +17,11 @@ $sql = "INSERT INTO guestbook (Name , Comment , Link) VALUES ('$name', '$comment
 
 
 if (mysqli_query($conn, $sql)) {
-    echo "Comment Posted"
     header("location: index.php");
-    mysqli_close($conn);
-    exit(0);
+    mysqli_close($conn);";
   } else {
-    echo "Something went wrong: " . $sql . "<br>" . mysqli_error($conn);
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
-
+  
 mysqli_close($conn);
-
 ?>

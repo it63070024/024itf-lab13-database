@@ -22,13 +22,13 @@ $num = $result->num_rows;
 			<h3>Edit Comment</h3>
 			<form action="insert_edit.php" method="post">
 				<div class="form-group">
-				Name : <input type="text" name="name" required value="<?php echo $result['name'];?>" class="form-control" value="name"> 
+				Name : <input type="text" name="name" required value="<?php echo $row['name'];?>" class="form-control" > 
 				</div>
 				<div class="form-group">
-				Comment : <input type="texl" name="comment" required value="<?php echo $result['comment'];?>" class="form-control" value="comment">
+				Comment : <input type="texl" name="comment" required value="<?php echo $row['comment'];?>" class="form-control" >
 			</div>
 				<div class="form-group">
-				Link : <input type="text" name="link" required value="<?php echo $result['link'];?>" class="form-control" value="$link">
+				Link : <input type="text" name="link" required value="<?php echo $row['link'];?>" class="form-control" >
 				</div>
 				<div class="form-group">
 				<button type="submit" class="btn btn-success">Save</button>

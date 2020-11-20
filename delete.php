@@ -6,21 +6,18 @@ if (mysqli_connect_errno($conn))
 {
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+$id = $_GET['id'];
+$sql = "DELETE FROM guestbook WHERE id=$id";
 
-if(isset($_GET['id'])){
-  $id = $conn->real_escape_string($_GET['id']);
-
-  $sql = "DELETE FROM guestbook WHERE id=$id";
-
-  if (mysqli_query($conn, $sql)) {
+if (mysqli_query($conn, $sql)) {
 	  header('Location: ./');
   } else {
-	  echo "Something went wrong: " . $sql . "<br>" . mysqli_error($conn);
+	  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
  
-
-}
-mysqli_close($conn);
  
+$stmt->close();
+
 ?>
   

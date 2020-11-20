@@ -31,11 +31,11 @@ while($Result = mysqli_fetch_array($res))
 {
 ?>
   <tr>
-    <td><div align="center"><?php echo $Result['Name'];?></div></td>
-    <td><div align="center"><?php echo $Result['Comment'];?></div></td>
-    <td><div align="center"><?php echo $Result['Link'];?></div></td>
-    <td><div align="center"><a href="edit.php?id=<?= $row->$id; ?>" class="btn btn-warning">Edit</a>
-    <a href="delete.php?id=<?= $row->$id ;?>" class="btn btn-danger">Del</a></td>
+    <td><div align="center"><?php echo $row['Name'];?></div></td>
+    <td><div align="center"><?php echo $row['Comment'];?></div></td>
+    <td><div align="center"><?php echo $row['Link'];?></div></td>
+    <td><div align="center"><a href="edit.php?edit=<?php echo $row['ID']; ?>" class="btn btn-warning">Edit</a>
+    <a href="delete.php?del=<?php echo $row['ID']; ?>" class="btn btn-danger">Del</a></td>
     
   </tr>
 <?php

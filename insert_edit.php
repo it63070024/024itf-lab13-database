@@ -6,6 +6,19 @@ if (mysqli_connect_errno($conn))
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 
+if (isset($_GET['edit'])) {
+	$id = $_GET['edit'];
+	$result = mysqli_query($conn, "SELECT * FROM guestbook WHERE id=$id");
+
+	if (count($result) == 1){
+		$row = mysqli_fetch_array($result);
+		$name = $row['name']
+		$comment = $row['comment']
+		$link = $row['link']
+	}
+
+}
+
 $name = $_POST['name'];
 $comment = $_POST['comment'];
 $link = $_POST['link'];

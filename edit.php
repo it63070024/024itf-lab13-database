@@ -10,7 +10,6 @@ $id = $_GET['id'];
 $sql = "SELECT* FROM guestbook WHERE id=$id";
 $result = $conn->query($sql);
 $row = mysqli_fetch_array($result);
-$num = $result->num_rows;
 //echo $num;
 //print_r($row);
 ?>
@@ -21,8 +20,9 @@ $num = $result->num_rows;
 			<br>
 			<h3>Edit Comment</h3>
 			<form action="insert_edit.php" method="post">
+			<input type="hidden" name="id" value="<?php echo $id; ?>">
 				<div class="form-group">
-				Name : <input type="text" name="name" required value="<?php echo $row['name'];?>" class="form-control" > 
+				Name : <input type="text" name="name" required value="<?php echo $row['name'];?>" class="form-control" value="$row['name']"> 
 				</div>
 				<div class="form-group">
 				Comment : <input type="texl" name="comment" required value="<?php echo $row['comment'];?>" class="form-control" >

@@ -8,16 +8,16 @@ if (mysqli_connect_errno($conn))
 }
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 $id = $_GET['id'];
-$sql = "DELETE FROM guestbook WHERE id=$id";
 
-if (mysqli_query($conn, $sql)) {
+
+if (mysqli_query($conn, "DELETE FROM info WHERE id=$id")) {
 	  header('Location: ./');
   } else {
-	  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	  echo "Something went wrong: " . $sql . "<br>" . mysqli_error($conn);
   }
  
  
-$stmt->close();
+mysqli_close($conn);
 
 ?>
   

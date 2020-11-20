@@ -7,7 +7,7 @@ if (mysqli_connect_errno($conn))
 }
 if(isset($_GET['id'])){
 $id = $_GET['id'];
-$sql = "SELECT*FROM guestbook WHERE id=$id";
+$sql = "SELECT* FROM guestbook WHERE id=$id";
 $result = $conn->query($sql);
 $row = mysqli_fetch_array($result);
 $num = $result->num_rows;

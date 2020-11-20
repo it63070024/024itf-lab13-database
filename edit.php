@@ -5,7 +5,7 @@ if (mysqli_connect_errno($conn))
 {
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
-if(isset($_GET['id'])){
+
 $id = $_GET['id'];
 $sql = "SELECT* FROM guestbook WHERE id=$id";
 $result = $conn->query($sql);
@@ -31,7 +31,7 @@ $num = $result->num_rows;
 				Link : <input type="text" name="link" required value="<?php echo $row['link'];?>" class="form-control" >
 				</div>
 				<div class="form-group">
-				<button type="submit" class="btn btn-success">Save</button>
+				<button type="submit" value="<?php echo $row['id'];?>"name="id" class="btn btn-success">Save</button>
 			</div>
 			</form>
 		</div>

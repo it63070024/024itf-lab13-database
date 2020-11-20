@@ -10,7 +10,7 @@ if (mysqli_connect_errno($conn))
 if(isset($_GET['id'])){
   $id = $conn->real_escape_string($_GET['id']);
 
-  $sql = "DELETE FROM guestbook (Name, Comment, Link) WHERE id='$id'";
+  $sql = "DELETE FROM guestbook WHERE id=$id";
 
   if (mysqli_query($conn, $sql)) {
 	  header('Location: ./');

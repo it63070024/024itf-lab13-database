@@ -31,7 +31,7 @@ while($row = mysqli_fetch_array($res))
 {
 ?>
   <tr>
-    <?php echo $row['ID'];?>
+    <input type="hidden" name="id" value="<?php echo $id; ?>">
     <td><div align="center"><?php echo $row['Name'];?></div></td>
     <td><div align="center"><?php echo $row['Comment'];?></div></td>
     <td><div align="center"><?php echo $row['Link'];?></div></td>

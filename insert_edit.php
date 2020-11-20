@@ -8,32 +8,22 @@ if (mysqli_connect_errno($conn))
 
 if (isset($_GET['edit'])) {
 	$id = $_GET['edit'];
-	$result = mysqli_query($conn, "SELECT * FROM guestbook WHERE id=$id");
-
-	if (count($result) == 1){
-		$row = mysqli_fetch_array($result);
-		$name = $row['name']
-		$comment = $row['comment']
-		$link = $row['link']
-	}
-
+	$result = mysqli_query($conn, "SELECT * FROM guestbook WHERE id=$id")
 }
 
 $name = $_POST['name'];
 $comment = $_POST['comment'];
 $link = $_POST['link'];
-$id = $_POST['id'];	
+$id = $_GET['edit'];	
 
-$sql =	"UPDATE  guestbook SET Name= '$name', Comment= '$comment', Link= '$link'  WHERE id=$id");
+$sql =	"UPDATE guestbook SET Name= '$name', Comment= '$comment', Link= '$link'  WHERE id=$id");
 		
- 
-
 
 if (mysqli_query($conn, $sql)) {
-		header('Location: ./');
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	}
+	header('Location: ./');
+} else {
+	echo "Something went wrong" . $sql . "<br>" . mysqli_error($conn);
+}
 
 mysqli_close($conn);
  }

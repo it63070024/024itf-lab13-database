@@ -17,11 +17,11 @@ if(isset($_POST['id'])){
 
 
 if (mysqli_query($conn, $sql)) {
-		echo "Comment Updated <button class="btn-primary"><a href='index.php'> Main Page </a></button>";
+		header('Location: ./');
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
-close($stmt);
+
 mysqli_close($conn);
  }
 ?>

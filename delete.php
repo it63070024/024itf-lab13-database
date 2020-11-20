@@ -7,19 +7,19 @@ if (mysqli_connect_errno($conn))
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 
-$stmt = $conn->prepare("DELETE FROM tbl_member WHERE id=?");
-$stmt->bind_param("i", $id);
-$id = $_GET['id'];
-$stmt->execute();
+if(isset($_GET['id'])){
+  $id = $conn->real_escape_string($_GET['id']);
 
-if (mysqli_query($conn, $sql)) {
-	echo "Delete Comment <button class="btn-primary"><a href='index.php'> Main Page </a></button>";
+  $sql = "DELETE FROM guestbook (Name, Comment, Link) WHERE id='".$id."'";
+
+  if (mysqli_query($conn, $sql)) {
+	  header('Location: ./');
   } else {
-	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	  echo "Something went wrong: " . $sql . "<br>" . mysqli_error($conn);
   }
  
- 
-$stmt->close();
+
+}
 mysqli_close($conn);
  
 ?>

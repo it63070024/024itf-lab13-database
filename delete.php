@@ -8,9 +8,6 @@ if (mysqli_connect_errno($conn))
 }
 
 $id = $_GET['delete']
-$name = $_POST['name'];
-$comment = $_POST['comment'];
-$link = $_POST['link'];
 
 
 $sql = "DELETE from guestbook WHERE id=$id";
@@ -18,9 +15,9 @@ $sql = "DELETE from guestbook WHERE id=$id";
 
 if (mysqli_query($conn, $sql)) {
     header("Location: ./");
-  } else {
+} else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  }
+}
   
 mysqli_close($conn);
 ?>

@@ -18,9 +18,9 @@ $sql = "UPDATE guestbook SET Name=$name, Comment=$comment, Link=$link WHERE ID=$
 
 if (mysqli_query($conn, $sql)) {
     header("Location: ./");
-} else {
+  } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
+  }
   
 mysqli_close($conn);
 ?>

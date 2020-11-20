@@ -1,86 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Guestbook</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <style type="text/css">
-        .wrapper{
-            width: 650px;
-            margin: 0 auto;
-        }
-        .page-header h2{
-            margin-top: 0;
-        }
-        table tr td:last-child a{
-            margin-right: 15px;
-        }
-    </style>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-        });
-    </script>
+  <title>ITF Lab</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header clearfix">
-                        <h2 class="pull-left">Guestbook Comment</h2>
-                        <a href="form.html" class="btn btn-success pull-right">Post a Comment</a>
-                    </div>
-                    <?php
-                    // Include config file
-                    require_once "config.php";
-                    
-                    // Attempt select query execution
-                    $sql = "SELECT * FROM guestbook";
-                    if($result = mysqli_query($coon, $sql)){
-                        if(mysqli_num_rows($result) > 0){
-                            echo "<table class='table table-bordered table-striped'>";
-                                echo "<thead>";
-                                    echo "<tr>";
-
-                                        echo "<th>Name</th>";
-                                        echo "<th>Comment</th>";
-                                        echo "<th>Link</th>";
-                                        echo "<th>Action</th>";
-                                    echo "</tr>";
-                                echo "</thead>";
-                                echo "<tbody>";
-                                while($row = mysqli_fetch_array($result)){
-                                    echo "<tr>";
-                                        <input type='hidden'echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['name'] . "</td>";
-                                        echo "<td>" . $row['comment'] . "</td>";
-                                        echo "<td>" . $row['link'] . "</td>";
-                                        echo "<td>";
-                                            echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-                                            echo "<a href='delete.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
-                                        echo "</td>";
-                                    echo "</tr>";
-                                }
-                                echo "</tbody>";                            
-                            echo "</table>";
-                            // Free result set
-                            mysqli_free_result($result);
-                        } else{
-                            echo "<p class='lead'><em>No comments were posted.</em></p>";
-                        }
-                    } else{
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-                    }
- 
-                    // Close connection
-                    mysqli_close($conn);
-                    ?>
-                </div>
-            </div>        
-        </div>
-    </div>
+<body class="bg-dark" style="margin:20px;">
+<?php
+$conn = mysqli_init();
+mysqli_real_connect($conn, 'it63070024-itf-lab13-database-php.mysql.database.azure.com', 'it630070024@it63070024-itf-lab13-database-php', 'TMRpti62', 'itflab', 3306);
+if (mysqli_connect_errno($conn))
+{
+    die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
+$res = mysqli_query($conn, 'SELECT * FROM guestbook');
+?>
+<div class="table-responsive">
+<table class="table table-dark table-striped">
+  <thead>
+    <th> <center>Name</center></th>
+    <th> <center>Comment </center></th>
+    <th> <center>Link </center></th>
+    <th> <center>Action</center></th>
+  </thead>
+<?php
+while($row = mysqli_fetch_array($res))
+{
+?>
+  <tr>
+    <td><div align="center"><?php echo $row['Name'];?></div></td>
+    <td><div align="center"><?php echo $row['Comment'];?></div></td>
+    <td><div align="center"><?php echo $row['Link'];?></div></td>
+    <td><div align="center"><a href="edit.php?edit=<?php echo $row['ID'];?>" class="btn btn-warning">Edit</a>
+    <a href="delete.php?delete=<?php echo $row['ID'];?>" class="btn btn-danger">Del</a></td>
+  </tr>
+<?php
+}
+?>
+</table>
+</div>
+<div class="btn btn-primary" align="center"><a href="form.html" class="btn btn-primary">Comment</a>
+<form action="" method="POST">
+</form>
+</div>
+<?php
+mysqli_close($conn);
+?>
 </body>
 </html>

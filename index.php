@@ -35,7 +35,8 @@ while($row = mysqli_fetch_array($res))
     <td><div align="center"><?php echo $row['Comment'];?></div></td>
     <td><div align="center"><?php echo $row['Link'];?></div></td>
     <td><div align="center">
-    <a href="edit.php?edit=<?php echo $row['id']; ?>" class="btn-warning" >Edit</a>
+    <td><?php echo '<a href="delete.php?id='.$row['id'].'">
+Delete</a>'?></td>
     <a href="delete.php?del=<?php echo $row['id']; ?>" class="btn-danger">Delete</a>
     </div></td>
 

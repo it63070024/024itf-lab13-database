@@ -41,13 +41,14 @@ $row = mysqli_fetch_array($result);
 	</div>
 </div>
 <?php
-$name = $_POST['name'];
-$comment = $_POST['comment'];
-$link = $_POST['link'];
+if(isset($_POST['save'])){
+	$name = $_POST['name'];
+	$comment = $_POST['comment'];
+	$link = $_POST['link'];
 
-$sql = "UPDATE guestbook Name=$name, Comment=$comment, Link=$link WHERE ID=$id" ;
+	$sql = "UPDATE guestbook Name=$name, Comment=$comment, Link=$link WHERE ID=$id" ;
 
-if(isset($_POST['save'])){}
+
 	if (mysqli_query($conn, $sql)) {
 		header("Location:index.php");
 	} else {
@@ -55,6 +56,5 @@ if(isset($_POST['save'])){}
 	}
 		mysqli_close($conn);
 }
-
 
 ?>

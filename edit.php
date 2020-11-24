@@ -46,7 +46,7 @@ if(isset($_POST['save'])){
 	$comment = $_POST['comment'];
 	$link = $_POST['link'];
 
-	$sql = "UPDATE guestbook Name=$name, Comment=$comment, Link=$link WHERE ID=$id" ;
+	$sql = "UPDATE guestbook GET Name=$name, Comment=$comment, Link=$link WHERE ID=$id" ;
 
 
 	if (mysqli_query($conn, $sql)) {

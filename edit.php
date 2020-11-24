@@ -19,7 +19,7 @@ $row = mysqli_fetch_array($result);
 		
 
 			<form action="insert_edit.php?id=<?php echo $row['id'];?>" method="post">
-			<input type="hidden" name="id" required value="<?php echo $row['ID'];?>" class="form-control" >
+			
 				<div class="form-group">
 					Name : <input type="text" name="name" required value="<?php echo $row['Name'];?>" class="form-control" > 
 				</div>
@@ -30,7 +30,7 @@ $row = mysqli_fetch_array($result);
 					Link : <input type="text" name="link" required value="<?php echo $row['Link'];?>" class="form-control" >
 				</div>
 				<div class="form-group">
-					<a href="insert_index.php?id=<?php echo $row['id']; ?>" class="btn btn-success">Save</a>
+					<a name="id" value="<?php echo $row['id'];?>" class="btn btn-success">Save</a>
 				</div>
 			</form>
 		</div>

@@ -37,7 +37,7 @@ while($row = mysqli_fetch_array($res))
     <form action="" method="POST">
     <td><div align="center">
     <?php echo '<a class="btn-warning"href="edit.php?id='.$row['ID'].'">EDIT</a>'?>
-    <?php echo '<a class="btn-danger"href="delete.php?id='.$row['ID'].'">DELETE/a>'?>
+    <?php echo '<a class="btn-danger"href="delete.php?id='.$row['ID'].'">DELETE</a>'?>
     </div></td>
     
 

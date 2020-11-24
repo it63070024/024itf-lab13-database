@@ -18,7 +18,7 @@ $row = mysqli_fetch_array($result);
 			<h3>Edit Comment</h3>
 		
 
-			<form action="insert_edit.php?id=$row['ID']" method="post">
+			<form action="insert_edit.php?id=<?php echo $row['id']; ?>" method="post">
 			<input type="hidden" name="id" required value="<?php echo $row['ID'];?>" class="form-control" >
 				<div class="form-group">
 					Name : <input type="text" name="name" required value="<?php echo $row['Name'];?>" class="form-control" > 

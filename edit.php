@@ -31,7 +31,7 @@ $row = mysqli_fetch_array($result);
 					Link : <input type="text" name="link" required value="<?php echo $row['Link'];?>" class="form-control" >
 				</div>
 				<div class="form-group">
-					<a name="id" value="<?php echo $row['id'];?>" class="btn btn-success" type="submit" >Save</a>
+					<button name="id" value="<?php echo $row['id'];?>" class="btn btn-success" type="submit" >Save</button>
 				</div>
 			</form>
 		</div>

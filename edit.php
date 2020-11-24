@@ -33,7 +33,7 @@ $row = mysqli_fetch_array($result);
 					Link : <input type="text" name="link" required value="<?php echo $row['Link'];?>" class="form-control" >
 				</div>
 				<div class="form-group">
-					<button name="id" value="<?php echo $row['ID'];?>" class="btn btn-success" type="submit" >Save</button>
+					<button name="save" value="<?php echo $row['ID'];?>" class="btn btn-success" type="submit" >Save</button>
 				</div>
 			</form>
 		</div>
@@ -41,22 +41,20 @@ $row = mysqli_fetch_array($result);
 	</div>
 </div>
 <?php
-if(isset($_POST['name'])){
-	$name = $_POST['name'];
-	$comment = $_POST['comment'];
-	$link = $_POST['link'];
+$name = $_POST['name'];
+$comment = $_POST['comment'];
+$link = $_POST['link'];
 
-	$sql = "UPDATE guestbook SET ID=$idม Name=$name, Comment=$comment, Link=$link";
+$sql = "UPDATE guestbook Name=$name, Comment=$comment, Link=$link WHERE ID=$id" ;
 
-
+if(isset($_POST['save'])){}
 	if (mysqli_query($conn, $sql)) {
-    	header("Location:index.php");
-  	} else {
-    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  	}
-  
-	mysqli_close($conn);
-
+		header("Location:index.php");
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
+		mysqli_close($conn);
 }
+
 
 ?>

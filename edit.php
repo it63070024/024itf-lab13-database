@@ -41,7 +41,7 @@ $row = mysqli_fetch_array($result);
 	</div>
 </div>
 <?php
-if(isset($_GET['ID'])){
+if(isset($_POST['name'])){
 	$name = $_POST['name'];
 	$comment = $_POST['comment'];
 	$link = $_POST['link'];
@@ -50,16 +50,13 @@ if(isset($_GET['ID'])){
 
 
 	if (mysqli_query($conn, $sql)) {
-    	header("Location: ./");
+    	header("Location:index.php");
   	} else {
     	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   	}
   
 	mysqli_close($conn);
 
-} else {
-	
-	echo "ID not found: " . $sql . "<br>" . mysqli_error($conn);
 }
 
 ?>

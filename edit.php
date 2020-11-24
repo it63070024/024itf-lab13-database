@@ -18,7 +18,8 @@ $row = mysqli_fetch_array($result);
 			<h3>Edit Comment</h3>
 		
 
-			<form action="" method="post">
+			<form action="insert_edit.php?id=$row['ID']" method="post">
+			<input type="hidden" name="id" required value="<?php echo $row['ID'];?>" class="form-control" >
 				<div class="form-group">
 					Name : <input type="text" name="name" required value="<?php echo $row['Name'];?>" class="form-control" > 
 				</div>
@@ -28,9 +29,8 @@ $row = mysqli_fetch_array($result);
 				<div class="form-group">
 					Link : <input type="text" name="link" required value="<?php echo $row['Link'];?>" class="form-control" >
 				</div>
-			</form>
-				<div class="btn">
-				<?php echo '<a class="btn-warning" href="insert_edit.php?id='.$row['ID'].'">EDIT</a>'?>
+				<div class="form-group">
+					<button type="submit" name="id" class="btn btn-success">Save</button>
 				</div>
 			</form>
 		</div>

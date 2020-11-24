@@ -6,7 +6,7 @@ if (mysqli_connect_errno($conn)){
 }
 
 $id = $_GET['id'];
-$result = mysqli_query($conn, "SELECT* FROM guestbook WHERE id=$id");
+$result = mysqli_query($conn, "SELECT * FROM guestbook WHERE ID=$id");
 $row = mysqli_fetch_array($result);
 ?>
 
@@ -16,22 +16,23 @@ $row = mysqli_fetch_array($result);
 		<div  class="col-sm-5">
 			<br>
 			<h3>Edit Comment</h3>
-			<input type="hidden" name="id" value="<?php echo $row['id'];?>">
-			<form action="insert_edit.php" method="post">
+			<input type="hidden" name="id" value="<?php echo $row['ID'];?>">
 
+			<form action="insert_edit.php" method="post">
 				<div class="form-group">
-				Name : <input type="text" name="name" required value="<?php echo $row['Name'];?>" class="form-control" > 
+					Name : <input type="text" name="name" required value="<?php echo $row['Name'];?>" class="form-control" > 
 				</div>
 				<div class="form-group">
-				Comment : <input type="texl" name="comment" required value="<?php echo $row['Comment'];?>" class="form-control" >
-			</div>
-				<div class="form-group">
-				Link : <input type="text" name="link" required value="<?php echo $row['Link'];?>" class="form-control" >
+					Comment : <input type="text" name="comment" required value="<?php echo $row['Comment'];?>" class="form-control" >
 				</div>
 				<div class="form-group">
-				<button type="submit" name="id" class="btn btn-success" <?php echo $row['ID];?>>Save</button>
-			</div>
+					Link : <input type="text" name="link" required value="<?php echo $row['Link'];?>" class="form-control" >
+				</div>
+				<div class="form-group">
+					<button type="submit" name="id" class="btn btn-success">Save</button>
+				</div>
 			</form>
 		</div>
+
 	</div>
 </div>

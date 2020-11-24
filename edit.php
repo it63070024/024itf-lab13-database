@@ -19,7 +19,7 @@ $row = mysqli_fetch_array($result);
 			<h3>Edit Comment</h3>
 		
 
-			<form action="insert_edit.php?id=<?php echo $row['id'];?>" method="post">
+			<form action="" method="post">
 				<div class="form-group">
 					<input type="hidden" name="id" value="<?php echo $row['ID'];?>" class="form-control" > 
 				</div>
@@ -40,3 +40,26 @@ $row = mysqli_fetch_array($result);
 
 	</div>
 </div>
+<?php
+if(isset($_GET['ID'])){
+	$name = $_POST['name'];
+	$comment = $_POST['comment'];
+	$link = $_POST['link'];
+
+	$sql = "UPDATE guestbook SET Name=$name, Comment=$comment, Link=$link WHERE ID=$id";
+
+
+	if (mysqli_query($conn, $sql)) {
+    	header("Location: ./");
+  	} else {
+    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  	}
+  
+	mysqli_close($conn);
+
+} else {
+	
+	echo "ID not found: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+?>

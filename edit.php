@@ -20,7 +20,7 @@ $row = mysqli_fetch_array($result);
 		
 
 			<form action="insert_edit.php" method="post">
-					<input text="hidden" name="ID" value="<?php echo $row['ID']; ?>"> 
+				<input type="hidden" name="ID" value="<?php echo $row['ID']; ?>"> 
 				<div class="form-group">
 					Name : <input type="text" name="name" required value="<?php echo $row['Name'];?>" class="form-control" > 
 				</div>

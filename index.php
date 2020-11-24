@@ -35,7 +35,10 @@ while($row = mysqli_fetch_array($res))
     <td><div align="center"><?php echo $row['Comment'];?></div></td>
     <td><div align="center"><?php echo $row['Link'];?></div></td>
     <form action="" method="GET">
-    <td><?php echo '<a href="delete.php?id='.$row['ID'].'">Delete</a>'?></td>
+    <td><div align="center">
+    <?php echo '<a class="btn-warning"href="edit.php?id='.$row['ID'].'">Delete</a>'?>
+    <?php echo '<a class="btn-danger"href="delete.php?id='.$row['ID'].'">Delete</a>'?>
+    </div></td>
     
 
 

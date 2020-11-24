@@ -16,9 +16,9 @@ $row = mysqli_fetch_array($result);
 		<div  class="col-sm-5">
 			<br>
 			<h3>Edit Comment</h3>
-			<input type="hidden" name="id" value="<?php echo $row['ID'];?>">
+		
 
-			<form action="insert_edit.php" method="post">
+			<form action="" method="post">
 				<div class="form-group">
 					Name : <input type="text" name="name" required value="<?php echo $row['Name'];?>" class="form-control" > 
 				</div>
@@ -28,8 +28,9 @@ $row = mysqli_fetch_array($result);
 				<div class="form-group">
 					Link : <input type="text" name="link" required value="<?php echo $row['Link'];?>" class="form-control" >
 				</div>
-				<div class="form-group">
-					<button type="submit" name="id" class="btn btn-success">Save</button>
+			</form>
+				<div class="btn">
+				<?php echo '<a class="btn-warning" href="insert_edit.php?id='.$row['ID'].'">EDIT</a>'?>
 				</div>
 			</form>
 		</div>

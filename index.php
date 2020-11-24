@@ -34,10 +34,10 @@ while($row = mysqli_fetch_array($res))
     <td><div align="center"><?php echo $row['Name'];?></div></td>
     <td><div align="center"><?php echo $row['Comment'];?></div></td>
     <td><div align="center"><?php echo $row['Link'];?></div></td>
-    <form action="" method="GET">
+    <form action="" method="POST">
     <td><div align="center">
-    <?php echo '<a class="btn-warning"href="edit.php?id='.$row['ID'].'">Delete</a>'?>
-    <?php echo '<a class="btn-danger"href="delete.php?id='.$row['ID'].'">Delete</a>'?>
+    <?php echo '<a class="btn-warning"href="edit.php?id='.$row['ID'].'">EDIT</a>'?>
+    <?php echo '<a class="btn-danger"href="delete.php?id='.$row['ID'].'">DELETE/a>'?>
     </div></td>
     
 
@@ -49,8 +49,7 @@ while($row = mysqli_fetch_array($res))
 </table>
 </div>
 <div class="btn btn-primary" align="center"><a href="form.html" class="btn btn-primary">Comment</a>
-<form action="" method="POST">
-</form>
+
 </div>
 <?php
 mysqli_close($conn);

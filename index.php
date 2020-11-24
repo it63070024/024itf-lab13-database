@@ -36,16 +36,18 @@ while($row = mysqli_fetch_array($res))
     <td><div align="center"><?php echo $row['Link'];?></div></td>
     <form action="" method="GET">
     <td><?php echo '<a href="delete.php?id='.$row['ID'].'">Delete</a>'?></td>
-    </form>
+    
 
 
   </tr>
-
+<?php
+}
+?>
 </table>
 </div>
-
 <div class="btn btn-primary" align="center"><a href="form.html" class="btn btn-primary">Comment</a>
-
+<form action="" method="POST">
+</form>
 </div>
 <?php
 mysqli_close($conn);

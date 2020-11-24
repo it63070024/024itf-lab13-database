@@ -24,13 +24,13 @@ $row = mysqli_fetch_array($result);
 					<input type="hidden" name="id" value="<?php echo $row['ID'];?>" class="form-control" > 
 				</div>
 				<div class="form-group">
-					Name : <input type="text" name="name" required value="<?php echo $row['Name'];?>" class="form-control" > 
+					Name : <input type="text" name="gname" required value="<?php echo $row['Name'];?>" class="form-control" > 
 				</div>
 				<div class="form-group">
-					Comment : <input type="text" name="comment" required value="<?php echo $row['Comment'];?>" class="form-control" >
+					Comment : <input type="text" name="gcomment" required value="<?php echo $row['Comment'];?>" class="form-control" >
 				</div>
 				<div class="form-group">
-					Link : <input type="text" name="link" required value="<?php echo $row['Link'];?>" class="form-control" >
+					Link : <input type="text" name="glink" required value="<?php echo $row['Link'];?>" class="form-control" >
 				</div>
 				<div class="form-group">
 					<button name="save" value="<?php echo $row['ID'];?>" class="btn btn-success" type="submit" >Save</button>
@@ -42,11 +42,11 @@ $row = mysqli_fetch_array($result);
 </div>
 <?php
 if(isset($_POST['save'])){
-	$name = $_POST['name'];
-	$comment = $_POST['comment'];
-	$link = $_POST['link'];
+	$name = $_POST['gname'];
+	$comment = $_POST['gcomment'];
+	$link = $_POST['glink'];
 
-	$sql = "UPDATE guestbook SET ID=$id, name=$name, comment=$comment, link=$link WHERE ID=$id" ;
+	$sql = "UPDATE guestbook SET Name=$name, Comment=$comment, Link=$link WHERE ID=$id" ;
 
 
 	if (mysqli_query($conn, $sql)) {

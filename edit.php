@@ -6,8 +6,8 @@ if (mysqli_connect_errno($conn)){
 }
 
 $id = $_GET['id'];
-$row = mysqli_query($conn, "SELECT* FROM guestbook WHERE id=$id");
-$result = mysqli_fetch_array($row);
+$result = mysqli_query($conn, "SELECT* FROM guestbook WHERE id=$id");
+$row = mysqli_fetch_array($result);
 ?>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -20,16 +20,16 @@ $result = mysqli_fetch_array($row);
 			<form action="insert_edit.php" method="post">
 
 				<div class="form-group">
-				Name : <input type="text" name="name" required value="<?php echo $row['name'];?>" class="form-control" > 
+				Name : <input type="text" name="name" required value="<?php echo $row['Name'];?>" class="form-control" > 
 				</div>
 				<div class="form-group">
-				Comment : <input type="texl" name="comment" required value="<?php echo $row['comment'];?>" class="form-control" >
+				Comment : <input type="texl" name="comment" required value="<?php echo $row['Comment'];?>" class="form-control" >
 			</div>
 				<div class="form-group">
-				Link : <input type="text" name="link" required value="<?php echo $row['link'];?>" class="form-control" >
+				Link : <input type="text" name="link" required value="<?php echo $row['Link'];?>" class="form-control" >
 				</div>
 				<div class="form-group">
-				<button type="submit" name="id" class="btn btn-success">Save</button>
+				<button type="submit" name="id" class="btn btn-success" <?php echo $row['ID];?>>Save</button>
 			</div>
 			</form>
 		</div>

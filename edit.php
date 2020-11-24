@@ -10,6 +10,7 @@ $result = mysqli_query($conn, "SELECT * FROM guestbook WHERE ID=$id");
 $row = mysqli_fetch_array($result);
 ?>
 
+<title>Update</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <div class="container">
 	<div class="row">
@@ -30,7 +31,7 @@ $row = mysqli_fetch_array($result);
 					Link : <input type="text" name="link" required value="<?php echo $row['Link'];?>" class="form-control" >
 				</div>
 				<div class="form-group">
-					<a name="id" value="<?php echo $row['id'];?>" class="btn btn-success">Save</a>
+					<a name="id" value="<?php echo $row['id'];?>" class="btn btn-success" type="submit" >Save</a>
 				</div>
 			</form>
 		</div>
